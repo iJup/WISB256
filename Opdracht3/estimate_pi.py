@@ -1,10 +1,13 @@
 import random
 import sys
 import math
-random.seed(int(sys.argv[3]))
-if len(sys.argv) < 3:
+
+if len(sys.argv) < 2 or len(sys.argv) > 4:
     print("Use: python Pi.py N L")
     sys.exit()
+if len(sys.argv) == 4:
+    random.seed(int(sys.argv[3]))    
+
 N = int(sys.argv[1])
 L = float(sys.argv[2])
 if L > 1:
