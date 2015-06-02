@@ -32,3 +32,22 @@ class Vector():
 
     def norm(self):
         return math.sqrt( self.inner(self))
+
+def GrammSchmidt(V):
+    u = []
+    e = [0] * len(V)
+    u.append(V[0])
+    
+    for i in range(1,len(V)):
+        z = V[i]
+        for j in range(i):
+            proj_V = u[j-1].scalar( V[i].inner(u[j-1]) / u[j-1].inner(u[j-1]) )
+            z = z.lincomb(proj_V, 1, -1)
+        u.append(z)
+        
+    for k in range(len(V)):
+        e[k] = u[k].scalar(1/u[k].norm())
+        
+    return e
+                
+            
