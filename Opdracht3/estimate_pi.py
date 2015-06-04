@@ -10,9 +10,10 @@ if len(sys.argv) == 4:
 
 N = int(sys.argv[1])
 L = float(sys.argv[2])
-if L > 1:
-    print("AssertionError: L should be smaller than 1")
-    sys.exit()
+
+##if L > 1:
+##    print("AssertionError: L should be smaller than 1")
+##    sys.exit()
 
 def drop_needle(L):
     x       = random.random()
@@ -31,6 +32,12 @@ for turn in range(N):
     hits += drop_needle(L)
 
 
-print(hits, "hits", "in", N, "tries") 
-pi = 2 * L / (int(hits) / N)
+print(hits, "hits", "in", N, "tries")
+
+if L <= 1 :
+    pi = 2 * L / (int(hits) / N)
+
+elif L > 1:
+    pi = (2 * L - 2 * math.sqrt(L ** 2 -1 ) - 2 * math.asin( 1/L ) ) / ((int(hits)/N) - 1)
+    
 print("Pi =",pi)
