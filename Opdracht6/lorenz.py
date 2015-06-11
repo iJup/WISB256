@@ -45,7 +45,6 @@ class Lorenz:
         a = np.matrix(u)
         
         return a
-        print(a)
 
     def isStable(self, punt):
         matrix = self.df(punt)
